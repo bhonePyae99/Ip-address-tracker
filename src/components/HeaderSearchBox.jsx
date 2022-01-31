@@ -2,7 +2,7 @@ import IpInfo from "./IpInfo";
 import axios from "axios";
 import { useState } from "react";
 
-const API_KEY = "at_B3KNf69r85umA0030f3pf5zXEe59u";
+const API_KEY = process.env.REACT_APP_MAP_API_KEY;
 const HeaderSearchBox = ({ setLocation, location }) => {
   const [errors, setErrors] = useState({});
   const handleSubmit = async (e) => {

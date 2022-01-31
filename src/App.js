@@ -5,15 +5,10 @@ import HeaderSearchBox from "./components/HeaderSearchBox";
 import IpContext from "./context/IpContext";
 function App() {
   const [location, setLocation] = useState({});
-  const [position, setPosition] = useState([19.81432, 96.02123]);
   return (
     <>
       <IpContext.Provider value={{ location, setLocation }}>
-        <HeaderSearchBox
-          setLocation={setLocation}
-          setPosition={setPosition}
-          location={location}
-        />
+        <HeaderSearchBox setLocation={setLocation} location={location} />
         <Map location={location} />
       </IpContext.Provider>
     </>

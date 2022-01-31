@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import { useState } from "react";
+import Map from "./components/Map";
+import HeaderSearchBox from "./components/HeaderSearchBox";
+import IpContext from "./context/IpContext";
 function App() {
+  const [location, setLocation] = useState({});
+  const [position, setPosition] = useState([19.81432, 96.02123]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <IpContext.Provider value={{ location, setLocation }}>
+        <HeaderSearchBox
+          setLocation={setLocation}
+          setPosition={setPosition}
+          location={location}
+        />
+        <Map location={location} />
+      </IpContext.Provider>
+    </>
   );
 }
 
